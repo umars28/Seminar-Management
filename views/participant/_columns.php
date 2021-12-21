@@ -17,6 +17,19 @@ return [
     [
         'class'=>'\kartik\grid\DataColumn',
         'attribute'=>'name',
+        'format'=>'raw',
+        'contentOptions' => ['class' => 'text-left'],
+        'headerOptions' => ['class' => 'text-center'],
+        'options' => ['style' => 'width:10%;'],
+        'value' => function($model){
+            return yii\helpers\Html::a($model->name, ['view', 'id' => $model->id], [
+                'title' => Yii::t('app', 'Lihat Profil'),
+                'data-toggle'=>'tooltip',
+                'data-placement'=>'right',
+                'data-pjax'=> 0 /*,'target'=>'_blank' */,
+                'role'=>'modal-remote',
+            ]);
+        },
     ],
     [
         'class'=>'\kartik\grid\DataColumn',
@@ -79,18 +92,24 @@ return [
     [
         'class' => 'kartik\grid\ActionColumn',
         'dropdown' => false,
+        'header'=>false,
         'vAlign'=>'middle',
-        'urlCreator' => function($action, $model, $key, $index) { 
-                return Url::to([$action,'id'=>$key]);
+        'template' => '{delete}' ,
+        'options' => ['style' => 'width:5%;'],
+        'buttons' => [
+            'update' => function ($url, $model) {
+                return yii\helpers\Html::a('<i class="fa fa-gears"></i>', ['delete', 'id' => $model->id], [
+                    'title' => Yii::t('app', 'Delete Participant '),
+                    'data-toggle'=>'tooltip',
+                    'data-placement'=>'right',
+                    'data-pjax'=> 0 /*,'target'=>'_blank' */,
+                    'role'=>'modal-remote',
+                ]);
+            },
+        ],
+        'urlCreator' => function($action, $model, $key, $index) {
+            return Url::to([$action,'id'=>$key]);
         },
-        'viewOptions'=>['role'=>'modal-remote','title'=>'View','data-toggle'=>'tooltip'],
-        'updateOptions'=>['role'=>'modal-remote','title'=>'Update', 'data-toggle'=>'tooltip'],
-        'deleteOptions'=>['role'=>'modal-remote','title'=>'Delete', 
-                          'data-confirm'=>false, 'data-method'=>false,// for overide yii data api
-                          'data-request-method'=>'post',
-                          'data-toggle'=>'tooltip',
-                          'data-confirm-title'=>'Are you sure?',
-                          'data-confirm-message'=>'Are you sure want to delete this item'], 
     ],
 
 ];   

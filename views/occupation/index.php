@@ -38,7 +38,7 @@ CrudAsset::register($this);
             'condensed' => true,
             'responsive' => true,
             'panel' => [
-                'type' => 'default',
+                'type' => 'primary',
                 'heading' => '<i class="glyphicon glyphicon-list"></i> Occupation listing',
                 'before'=> Html::a('<i class="glyphicon glyphicon-plus"></i> Add', ['create'],
                     ['data-pjax'=>0,'title'=> 'Create new Occupation','class'=>'btn btn-default']),
