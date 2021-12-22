@@ -108,7 +108,9 @@ class EducationController extends Controller
             }else{           
                 return [
                     'title'=> "Create new Education",
-                    'content'=>'<span class="text-success">Create Education success</span>',
+                    'content'=>$this->renderAjax('create', [
+                        'model' => $model,
+                    ]),
                     'footer'=> Html::button('Close',['class'=>'btn btn-default pull-left','data-dismiss'=>"modal"]).
                                 Html::button('Save',['class'=>'btn btn-primary','type'=>"submit"])
         
