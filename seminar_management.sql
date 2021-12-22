@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Dec 21, 2021 at 10:34 AM
+-- Generation Time: Dec 22, 2021 at 03:18 AM
 -- Server version: 5.7.32
 -- PHP Version: 7.1.33
 
@@ -32,6 +32,7 @@ CREATE TABLE `auth_assignment` (
 
 INSERT INTO `auth_assignment` (`item_name`, `user_id`, `created_at`) VALUES
 ('Admin', 2, 1639967186),
+('Admin', 3, 1640137565),
 ('Super Admin', 1, 1639966585);
 
 -- --------------------------------------------------------
@@ -446,7 +447,7 @@ CREATE TABLE `participant` (
 --
 
 INSERT INTO `participant` (`id`, `name`, `email`, `phone`, `education_id`, `occupation_id`, `address`, `birth_date`, `sex`) VALUES
-(5, 'Umar', 'umarsabirin@fairtech.com.sg', '08361232323', 7, 4, '', '2021-12-20', '0');
+(6, 'Marc', 'umarsabirin+1@fairtech.com.sg', '08361232323', 10, 6, 'Makassar', '2021-12-15', 'Wanita');
 
 -- --------------------------------------------------------
 
@@ -476,7 +477,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `username`, `auth_key`, `password_hash`, `confirmation_token`, `status`, `superadmin`, `created_at`, `updated_at`, `registration_ip`, `bind_to_ip`, `email`, `email_confirmed`) VALUES
 (1, 'superadmin', 'KZEXnmNkKbqK_Mu9Ru5hM8OkidAtMs-h', '$2y$13$wse5O5CJRt6.21.5QoC.lOhFHqgTgTfe/SN5whKZWx6EJXI.fs47G', NULL, 1, 1, 1639963730, 1639963730, NULL, NULL, NULL, 0),
-(2, 'umar', 'pGoSKaTscdmBxL2xNwlSGo80_7xk_GQK', '$2y$13$PexYaZ9ovE91P4iozg7NXu/jApLo1xTj0fzUx6N5RD66WYAZhoaRa', NULL, 1, 0, 1639967186, 1639967186, '::1', '', NULL, 0);
+(2, 'umar', 'pGoSKaTscdmBxL2xNwlSGo80_7xk_GQK', '$2y$13$PexYaZ9ovE91P4iozg7NXu/jApLo1xTj0fzUx6N5RD66WYAZhoaRa', NULL, 1, 0, 1639967186, 1639967186, '::1', '', NULL, 0),
+(3, 'umar2', 'lZICcrHfTK_VWD-LioPt8STjRES8ZQwc', '$2y$13$8i.a4Dn5Qx9WEyTuVuAB6O6JhEuMu.6VI/rssB297AKfjs9c6zVMm', NULL, 1, 0, 1640137565, 1640137565, '::1', '', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -540,7 +542,12 @@ INSERT INTO `user_visit_log` (`id`, `token`, `ip`, `language`, `user_agent`, `us
 (37, '61c162a93de02', '::1', 'en', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36', 1, 1640063657, 'Chrome', 'mac'),
 (38, '61c16323b2c1d', '::1', 'en', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36', 1, 1640063779, 'Chrome', 'mac'),
 (39, '61c19d408134d', '::1', 'en', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36', 1, 1640078656, 'Chrome', 'mac'),
-(40, '61c19eec5d1cc', '::1', 'en', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36', 2, 1640079084, 'Chrome', 'mac');
+(40, '61c19eec5d1cc', '::1', 'en', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36', 2, 1640079084, 'Chrome', 'mac'),
+(41, '61c282c05bfe9', '::1', 'en', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36', 1, 1640137408, 'Chrome', 'mac'),
+(42, '61c2835de2e13', '::1', 'en', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36', 3, 1640137565, 'Chrome', 'mac'),
+(43, '61c283c0bcf82', '::1', 'en', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36', 3, 1640137664, 'Chrome', 'mac'),
+(44, '61c2862b44d0e', '::1', 'en', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36', 1, 1640138283, 'Chrome', 'mac'),
+(45, '61c28667e860a', '::1', 'en', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36', 2, 1640138343, 'Chrome', 'mac');
 
 --
 -- Indexes for dumped tables
@@ -628,7 +635,7 @@ ALTER TABLE `user_visit_log`
 -- AUTO_INCREMENT for table `education`
 --
 ALTER TABLE `education`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `occupation`
@@ -640,19 +647,19 @@ ALTER TABLE `occupation`
 -- AUTO_INCREMENT for table `participant`
 --
 ALTER TABLE `participant`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `user_visit_log`
 --
 ALTER TABLE `user_visit_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- Constraints for dumped tables

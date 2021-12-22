@@ -48,7 +48,7 @@ use yii\widgets\ActiveForm;
     ]);
     ?>
 
-    <?= $form->field($model, 'sex')->radioList( ['Pria', 'Wanita'] ); ?>
+    <?= $form->field($model, 'sex')->radioList( ['Pria' => 'Pria', 'Wanita' => 'Wanita'] ); ?>
 
   
 	<?php if (!Yii::$app->request->isAjax){ ?>
